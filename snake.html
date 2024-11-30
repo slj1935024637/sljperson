@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>贪吃蛇 - 宋丽娟的个人网站</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .game-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 80px 20px;
+        }
+
+        #gameCanvas {
+            border: 2px solid #4ecdc4;
+            background: #000;
+            box-shadow: 0 0 20px rgba(78, 205, 196, 0.3);
+        }
+
+        .game-info {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .score {
+            font-size: 1.5rem;
+            color: #4ecdc4;
+            margin-bottom: 10px;
+        }
+
+        .controls {
+            margin-top: 20px;
+            color: #888;
+        }
+
+        .btn-start {
+            margin-top: 20px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-start:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(78, 205, 196, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <span class="logo-text">SLJ</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">首页</a>
+            <a href="resume.html">个人简历</a>
+            <a href="snake.html" class="active">贪吃蛇</a>
+            <a href="special-game.html">专属小游戏</a>
+        </div>
+    </nav>
+
+    <div class="game-container">
+        <canvas id="gameCanvas" width="400" height="400"></canvas>
+        <div class="game-info">
+            <div class="score">得分: <span id="score">0</span></div>
+            <button class="btn-start" id="startButton">开始游戏</button>
+            <div class="controls">
+                <p>使用方向键或 WASD 控制蛇的移动</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/snake.js"></script>
+</body>
+</html>

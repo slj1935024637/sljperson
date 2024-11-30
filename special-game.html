@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>记忆配对游戏 - 宋丽娟的个人网站</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/memory-game.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <span class="logo-text">SLJ</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">首页</a>
+            <a href="resume.html">个人简历</a>
+            <a href="snake.html">贪吃蛇</a>
+            <a href="special-game.html" class="active">专属小游戏</a>
+        </div>
+    </nav>
+
+    <div class="game-container">
+        <div class="game-header">
+            <h1>记忆配对游戏</h1>
+            <div class="game-stats">
+                <div class="moves">步数: <span id="moves">0</span></div>
+                <div class="timer">时间: <span id="timer">0</span>秒</div>
+            </div>
+            <button id="restart-btn" class="btn">重新开始</button>
+        </div>
+
+        <div class="memory-game">
+            <div class="memory-card" data-framework="1">
+                <div class="card-inner">
+                    <div class="card-front">❓</div>
+                    <div class="card-back">🎮</div>
+                </div>
+            </div>
+            <div class="memory-card" data-framework="1">
+                <div class="card-inner">
+                    <div class="card-front">❓</div>
+                    <div class="card-back">🎮</div>
+                </div>
+            </div>
+            <div class="memory-card" data-framework="2">
+                <div class="card-inner">
+                    <div class="card-front">❓</div>
+                    <div class="card-back">🎨</div>
+                </div>
+            </div>
+            <div class="memory-card" data-framework="2">
+                <div class="card-inner">
+                    <div class="card-front">❓</div>
+                    <div class="card-back">🎨</div>
+                </div>
+            </div>
+            <div class="memory-card" data-framework="3">
+                <div class="card-inner">
+                    <div class="card-front">❓</div>
+                    <div class="card-back">🎵</div>
+                </div>
+            </div>
+            <div class="memory-card" data-framework="3">
+                <div class="card-inner">
+                    <div class="card-front">❓</div>
+                    <div class="card-back">🎵</div>
+                </div>
+            </div>
+            <div class="memory-card" data-framework="4">
+                <div class="card-inner">
+                    <div class="card-front">❓</div>
+                    <div class="card-back">🎲</div>
+                </div>
+            </div>
+            <div class="memory-card" data-framework="4">
+                <div class="card-inner">
+                    <div class="card-front">❓</div>
+                    <div class="card-back">🎲</div>
+                </div>
+            </div>
+            <div class="memory-card" data-framework="5">
+                <div class="card-inner">
+                    <div class="card-front">❓</div>
+                    <div class="card-back">🎯</div>
+                </div>
+            </div>
+            <div class="memory-card" data-framework="5">
+                <div class="card-inner">
+                    <div class="card-front">❓</div>
+                    <div class="card-back">🎯</div>
+                </div>
+            </div>
+            <div class="memory-card" data-framework="6">
+                <div class="card-inner">
+                    <div class="card-front">❓</div>
+                    <div class="card-back">🎪</div>
+                </div>
+            </div>
+            <div class="memory-card" data-framework="6">
+                <div class="card-inner">
+                    <div class="card-front">❓</div>
+                    <div class="card-back">🎪</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/memory-game.js"></script>
+</body>
+</html>
