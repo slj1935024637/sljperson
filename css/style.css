@@ -9,6 +9,47 @@ body {
     background: #0a0a0a;
     color: #fff;
     overflow-x: hidden;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(78, 205, 196, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(255, 107, 107, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(41, 50, 60, 0.8) 0%, transparent 100%);
+    animation: gradientAnimation 15s ease infinite;
+    z-index: -2;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)"/></svg>');
+    opacity: 0.05;
+    z-index: -1;
+    pointer-events: none;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 /* 导航栏样式 */
@@ -20,17 +61,41 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(10, 10, 10, 0.8);
     backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     z-index: 1000;
+    transition: all 0.3s ease;
 }
 
-.logo {
+.navbar:hover {
+    background: rgba(10, 10, 10, 0.95);
+}
+
+.logo-text {
     font-size: 2rem;
     font-weight: 600;
     background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    position: relative;
+}
+
+.logo-text::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #4ecdc4, transparent);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover .logo-text::after {
+    transform: scaleX(1);
 }
 
 .nav-links a {
@@ -42,19 +107,22 @@ body {
     transition: 0.3s;
 }
 
-.nav-links a::after {
+.nav-links a::before {
     content: '';
     position: absolute;
     bottom: -5px;
     left: 0;
-    width: 0;
+    width: 100%;
     height: 2px;
-    background: #4ecdc4;
-    transition: 0.3s;
+    background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
 }
 
-.nav-links a:hover::after {
-    width: 100%;
+.nav-links a:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
 }
 
 .nav-links a.active {
@@ -154,6 +222,19 @@ body {
     transition: 0.3s;
     background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
     color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
 }
 
 .btn:hover {
@@ -161,9 +242,8 @@ body {
     box-shadow: 0 5px 15px rgba(78, 205, 196, 0.4);
 }
 
-.btn-outline {
-    background: transparent;
-    border: 2px solid #4ecdc4;
+.btn:hover::before {
+    left: 100%;
 }
 
 /* 特性卡片区域 */
@@ -243,4 +323,21 @@ footer {
     .features {
         padding: 3rem 5%;
     }
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #4ecdc4, #ff6b6b);
 }
