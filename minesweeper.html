@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>扫雷 - 石磊基的个人网站</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/minesweeper.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">
+                <span class="logo-text">石磊基</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="resume.html">个人简历</a>
+                <a href="snake.html">贪吃蛇</a>
+                <a href="special-game.html">记忆游戏</a>
+                <a href="minesweeper.html" class="active">扫雷</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="game-container">
+        <div class="game-header">
+            <h1>扫雷</h1>
+            <div class="game-controls">
+                <div class="difficulty-selector">
+                    <button class="btn" data-difficulty="beginner">初级</button>
+                    <button class="btn" data-difficulty="intermediate">中级</button>
+                    <button class="btn" data-difficulty="expert">高级</button>
+                </div>
+                <div class="game-info">
+                    <div class="mines-count">剩余: <span id="mines-count">10</span></div>
+                    <div class="timer">时间: <span id="timer">0</span>s</div>
+                </div>
+                <button id="new-game-btn" class="btn">新游戏</button>
+            </div>
+        </div>
+
+        <div class="minesweeper-board" id="board"></div>
+
+        <div class="game-instructions">
+            <h3>游戏说明</h3>
+            <p>左键点击：揭开方块</p>
+            <p>右键点击：标记地雷</p>
+            <p>双击已开方块：快速展开周围</p>
+            <div class="difficulty-info">
+                <p>初级: 9×9 格子, 10 个地雷</p>
+                <p>中级: 16×16 格子, 40 个地雷</p>
+                <p>高级: 16×30 格子, 99 个地雷</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/minesweeper.js"></script>
+    <script src="js/particles.js"></script>
+</body>
+</html>

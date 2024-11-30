@@ -1,0 +1,229 @@
+/* 游戏容器 */
+.game-container {
+    width: 100%;
+    min-height: 100vh;
+    padding: 80px 20px 20px;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* 游戏头部 */
+.game-header {
+    max-width: 800px;
+    margin: 0 auto 30px;
+    text-align: center;
+}
+
+.game-header h1 {
+    font-size: 2.5rem;
+    color: #4ecdc4;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(78, 205, 196, 0.3);
+}
+
+/* 游戏控制区 */
+.game-controls {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+
+.difficulty-selector {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.game-info {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 20px 0;
+    font-size: 1.2rem;
+}
+
+.mines-count, .timer {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 10px 20px;
+    border-radius: 8px;
+    min-width: 150px;
+    text-align: center;
+}
+
+/* 按钮样式 */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(45deg, #4ecdc4, #45b7af);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(78, 205, 196, 0.3);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn[data-difficulty].active {
+    background: linear-gradient(45deg, #ff6b6b, #ff4757);
+    box-shadow: 0 0 15px rgba(255, 107, 107, 0.3);
+}
+
+/* 游戏板 */
+.minesweeper-board {
+    max-width: fit-content;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 15px;
+    display: grid;
+    gap: 2px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* 游戏格子 */
+.cell {
+    width: 35px;
+    height: 35px;
+    background: linear-gradient(145deg, #2a2a3a, #1a1a2a);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s ease;
+    font-size: 1.1rem;
+    border-radius: 4px;
+}
+
+.cell:hover {
+    background: linear-gradient(145deg, #333345, #222235);
+    transform: scale(0.95);
+}
+
+.cell.revealed {
+    background: linear-gradient(145deg, #1a1a25, #15151f);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.cell.mine {
+    background: linear-gradient(145deg, #ff4444, #cc3333);
+    animation: explode 0.5s ease-out;
+}
+
+.cell.flagged::after {
+    content: "🚩";
+    font-size: 1.2rem;
+}
+
+/* 游戏说明 */
+.game-instructions {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    text-align: center;
+}
+
+.game-instructions h3 {
+    color: #4ecdc4;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.game-instructions p {
+    margin: 10px 0;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.difficulty-info {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 数字颜色 */
+.cell[data-number="1"] { color: #4ecdc4; }
+.cell[data-number="2"] { color: #ff6b6b; }
+.cell[data-number="3"] { color: #ffd93d; }
+.cell[data-number="4"] { color: #6c5ce7; }
+.cell[data-number="5"] { color: #a8e6cf; }
+.cell[data-number="6"] { color: #ff8b94; }
+.cell[data-number="7"] { color: #dff9fb; }
+.cell[data-number="8"] { color: #fab1a0; }
+
+/* 动画效果 */
+@keyframes explode {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .game-container {
+        padding: 70px 10px 20px;
+    }
+
+    .game-header h1 {
+        font-size: 2rem;
+    }
+
+    .difficulty-selector {
+        flex-wrap: wrap;
+    }
+
+    .game-info {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .mines-count, .timer {
+        min-width: 120px;
+        font-size: 1rem;
+    }
+
+    .cell {
+        width: 30px;
+        height: 30px;
+        font-size: 1rem;
+    }
+
+    .game-instructions {
+        margin: 20px 10px;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cell {
+        width: 25px;
+        height: 25px;
+        font-size: 0.9rem;
+    }
+
+    .btn {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+
+    .game-info {
+        font-size: 0.9rem;
+    }
+}
