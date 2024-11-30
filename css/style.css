@@ -73,6 +73,17 @@ body::after {
     background: rgba(10, 10, 10, 0.98);
 }
 
+.logo-link {
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease;
+    display: block;
+}
+
+.logo-link:hover {
+    transform: scale(1.05);
+}
+
 .logo-text {
     font-size: 1.5rem;
     font-weight: 600;
